@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     // connection manager
     var connected = false
     @IBOutlet weak var connectionLabel: UILabel!
+    @IBOutlet weak var logoImage: UIImageView!
     
     
     // to execute when the bluetooth message is received
@@ -67,11 +68,17 @@ class ViewController: UIViewController {
         currentAudio = audioLib[message]!
         audioCommunicate(fileName: currentAudio, stop: false)
         
+        connectionLabel.text = currentAudio
+        
     }
 
     func setInitAppearance () {
         // make screen pretty
         connectionLabel.text = "not connected"
+        connectionLabel.textColor = .black
+        let lsfont = UIFont(name: "Verdana-Bold", size: 25)
+        connectionLabel.font = lsfont
+        logoImage.image = UIImage(named: "logo_image")
     }
     
     func initPlay () {
