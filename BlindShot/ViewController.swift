@@ -52,8 +52,6 @@ class ViewController: UIViewController {
         
         print(" ----------- now in received")
         
-        message = 4
-        
         // continue playing if the message has been received immediately before
         if (currentAudio == audioLib[message]) {
             return
