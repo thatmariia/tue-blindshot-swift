@@ -89,15 +89,15 @@ extension ViewController : CBCentralManagerDelegate, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
         print("char uuid : \n", characteristic.uuid)
-        let test = characteristic.uuid
+        //let test = characteristic.uuid
         
         switch characteristic.uuid {
-        //case gunCamCBUUID:
-        case test:
+        case gunCamCBUUID:
+        //case test:
             // must be CBUUID of the specific service
             print(characteristic.value ?? "no value")
             // send the value to play sound
-            //message = characteristic.value?.first
+            message = characteristic.value?.first ?? 7
             print(" ----------- going to received")
             received()
         default:
