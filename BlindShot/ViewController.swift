@@ -22,39 +22,42 @@ class ViewController: UIViewController {
     var gunCamPeripheral : CBPeripheral!
     */
     
-    var message : UInt8 = 7
-    
-    // audio
     var audioPlayer: AVAudioPlayer? = nil
     
-    // auidio library
+    //MARK: - CHANGE MESSAGE AND audioLib KEYS TO UInt8 FOR BLE COMMUNICATION
+    var message : Int = 7
     var currentAudio : String = "notconnected"
-    let audioLib : [UInt8 : String] = [0 : "notdetected",
-                                       1 : "detected",
-                                       2 : "shoot",
-                                       3 : "left",
-                                       4 : "right",
-                                       5 : "up",
-                                       6 : "down",
-                                       7 : "notconnected"]
+    // auidio library
+    let audioLib : [Int : String] = [0 : "notdetected",
+                                     1 : "detected",
+                                     2 : "shoot",
+                                     3 : "left",
+                                     4 : "right",
+                                     5 : "up",
+                                     6 : "down",
+                                     7 : "notconnected"]
     
-    // connection manager
     var connected = false
     @IBOutlet weak var connectionLabel: UILabel!
     @IBOutlet weak var logoImage: UIImageView!
     
+    // timer setup
+    var startTime = CFAbsoluteTimeGetCurrent()
+    var timer = Timer()
+    var secLeft = 0
     
-    // to execute when the bluetooth message is received
+    
+    // to execute when the message is received
     func received () {
         
-        print(" ----------- now in received")
+        print("**** now in received")
         
         // continue playing if the message has been received immediately before
         if (currentAudio == audioLib[message]) {
             return
         }
         
-        print("****in playing mode****")
+        print("**** in playing mode****")
         
         // if smth different is already playing, make it stop
         audioCommunicate(fileName: currentAudio, stop: true)
@@ -64,17 +67,21 @@ class ViewController: UIViewController {
         audioCommunicate(fileName: currentAudio, stop: false)
         
         connectionLabel.text = currentAudio
-        
     }
+    
 
-    func setInitAppearance () {
+    func initSetup () {
+        // prevent screen from auto-lock
         UIApplication.shared.isIdleTimerDisabled = true
-        // make screen pretty
+ 
         connectionLabel.text = "not connected"
         connectionLabel.textColor = .black
         let lsfont = UIFont(name: "Verdana-Bold", size: 25)
         connectionLabel.font = lsfont
+        
         logoImage.image = UIImage(named: "logo_image")
+        
+        setTimer()
     }
     
     func initPlay () {
@@ -85,7 +92,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setInitAppearance()
+        initSetup()
         initPlay()
         
         //MARK: - UNCOMMENT FOR BLE COMMUNICATION
@@ -93,7 +100,6 @@ class ViewController: UIViewController {
         gunCamCBUUID = CBUUID(string: "E7244BEB-0C3F-5624-9BB2-1619EB2165A4")
         centralManager = CBCentralManager(delegate: self, queue: nil)
         */
-
     }
 
 

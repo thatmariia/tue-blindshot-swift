@@ -26,6 +26,7 @@
 		31D0A1F1235BBEC500FBB5D6 /* notconnected.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 31D0A1EA235BBEC500FBB5D6 /* notconnected.m4a */; };
 		31D0A1F2235BBEC500FBB5D6 /* up.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 31D0A1EB235BBEC500FBB5D6 /* up.m4a */; };
 		31D0A1F4235BC24600FBB5D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D0A1F3235BC24600FBB5D6 /* AVFoundation.framework */; };
+		31D0A1F6235E2FF100FBB5D6 /* WifiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D0A1F5235E2FF100FBB5D6 /* WifiController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		31D0A1EA235BBEC500FBB5D6 /* notconnected.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notconnected.m4a; sourceTree = "<group>"; };
 		31D0A1EB235BBEC500FBB5D6 /* up.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = up.m4a; sourceTree = "<group>"; };
 		31D0A1F3235BC24600FBB5D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		31D0A1F5235E2FF100FBB5D6 /* WifiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				31D0A1E4235BB51400FBB5D6 /* sounds */,
 				31975D632330DBD400A05B06 /* AppDelegate.swift */,
 				31975D652330DBD400A05B06 /* ViewController.swift */,
+				31D0A1F5235E2FF100FBB5D6 /* WifiController.swift */,
 				31975D96233117E600A05B06 /* AudioController.swift */,
 				31975D942330DE8200A05B06 /* BLEController.swift */,
 				31975D672330DBD400A05B06 /* Main.storyboard */,
@@ -319,6 +322,7 @@
 			files = (
 				31975D97233117E600A05B06 /* AudioController.swift in Sources */,
 				31975D662330DBD400A05B06 /* ViewController.swift in Sources */,
+				31D0A1F6235E2FF100FBB5D6 /* WifiController.swift in Sources */,
 				31975D952330DE8200A05B06 /* BLEController.swift in Sources */,
 				31975D642330DBD400A05B06 /* AppDelegate.swift in Sources */,
 				31975D6C2330DBD400A05B06 /* BlindShot.xcdatamodeld in Sources */,
