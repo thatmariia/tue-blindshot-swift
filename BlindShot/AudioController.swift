@@ -14,7 +14,7 @@ extension ViewController {
     func audioCommunicate(fileName : String, stop : Bool){
         
         if let soundURL = Bundle.main.url(forResource: fileName, withExtension: "m4a"){
-            print("sound URL *** ", soundURL as Any)
+            //print("sound URL *** ", soundURL as Any)
                 
             do {
                 try audioPlayer = AVAudioPlayer.init(contentsOf: soundURL)

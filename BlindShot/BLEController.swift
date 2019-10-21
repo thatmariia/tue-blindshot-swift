@@ -6,6 +6,9 @@
 //  Copyright © 2019 Mariia Turchina. All rights reserved.
 //
 
+
+//MARK: - UNCOMMENT FOR BLE COMMUNICATION
+/*
 import Foundation
 import CoreBluetooth
 
@@ -61,7 +64,8 @@ extension ViewController : CBCentralManagerDelegate, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         
         guard let services = peripheral.services else { return }
-        
+        print("now printing services:")
+        print(services)
         for service in services {
             print("curr service : ", service)
             peripheral.discoverCharacteristics(nil, for: service)
@@ -87,8 +91,8 @@ extension ViewController : CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        
-        print("char uuid : \n", characteristic.uuid)
+        print("__________________________________________________________________")
+        print("****** char uuid : \n", characteristic.uuid)
         //let test = characteristic.uuid
         
         switch characteristic.uuid {
@@ -96,9 +100,11 @@ extension ViewController : CBCentralManagerDelegate, CBPeripheralDelegate {
         //case test:
             // must be CBUUID of the specific service
             print(characteristic.value ?? "no value")
+            print(characteristic.value?.base64EncodedString() as Any)
             // send the value to play sound
             message = characteristic.value?.first ?? 7
             print(" ----------- going to received")
+            print("received message : ", message)
             received()
         default:
             print("Unhandled Characteristic UUID: \n", characteristic.uuid)
@@ -111,7 +117,7 @@ extension ViewController : CBCentralManagerDelegate, CBPeripheralDelegate {
         centralManager?.cancelPeripheralConnection(gunCamPeripheral!)
     }
     
-    
-    
-    
 }
+ 
+ */
+
