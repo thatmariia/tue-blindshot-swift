@@ -101,6 +101,10 @@ class ViewController: UIViewController {
         centralManager = CBCentralManager(delegate: self, queue: nil)
         */
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        timer.invalidate()
+    }
 
 
 }

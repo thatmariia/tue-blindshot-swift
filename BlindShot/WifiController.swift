@@ -11,7 +11,8 @@ import Foundation
 extension ViewController {
     
     func fetchAdvice () {
-        let urlString =  "http://192.168.1.211:8080/blindshot"
+        //let urlString =  "http://192.168.1.211:8080/blindshot"
+        let urlString =  "http://blindshot.local"
         
         if let url = URL(string: urlString) {
             do {
